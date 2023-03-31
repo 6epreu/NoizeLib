@@ -5,6 +5,7 @@
 //  Created by Sergey Brazhnik on 29.03.2023.
 //
 
+import Foundation
 import XCTest
 @testable import NoizeLib
 
@@ -18,18 +19,23 @@ class NoizeLibTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+    func testEncryptDecrypt() throws {
+        var key = [UInt8](repeating: 0, count: 32)
+        let _ = SecRandomCopyBytes(kSecRandomDefault, key.count, &key)
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        let plainText = "Hello World!"
+        let ad = Data(repeating: 0, count: 32)
+        let cipher = CipherStateImpl(k: Data(bytes: key))
+        do {
+            let encripted = try cipher.encryptWithAd(authenticationData: ad, plaintext: plainText.data(using: .utf8)!)
+            print("encripted =\(encripted)")
+            let decripted = try cipher.decryptWithAd(authenticationData: ad, ciphertext: encripted)
+            print("decrypted =\(decripted)")
+
+            let resStr = String(bytes: decripted, encoding: .utf8)
+            print("decrypted str =\(resStr)")
+        } catch  {
+            print("Error =\(error)")
         }
     }
 

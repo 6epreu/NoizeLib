@@ -10,6 +10,9 @@
 		404ED45229D45A01002426E7 /* NoizeLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404ED44929D45A01002426E7 /* NoizeLib.framework */; };
 		404ED45729D45A01002426E7 /* NoizeLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404ED45629D45A01002426E7 /* NoizeLibTests.swift */; };
 		404ED45829D45A01002426E7 /* NoizeLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 404ED44C29D45A01002426E7 /* NoizeLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59EC90691E7E643E9A922D69 /* CipherState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC9E352B384F518FAD4D57 /* CipherState.swift */; };
+		59EC920619150822923721A9 /* Data+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC926396C935A3B284E84C /* Data+hex.swift */; };
+		59EC99AD717BE81F9761FBE8 /* Data+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC906ACB026BB25C6CB8EB /* Data+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +30,9 @@
 		404ED44C29D45A01002426E7 /* NoizeLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoizeLib.h; sourceTree = "<group>"; };
 		404ED45129D45A01002426E7 /* NoizeLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoizeLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		404ED45629D45A01002426E7 /* NoizeLibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoizeLibTests.swift; sourceTree = "<group>"; };
+		59EC906ACB026BB25C6CB8EB /* Data+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+extension.swift"; sourceTree = "<group>"; };
+		59EC926396C935A3B284E84C /* Data+hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+hex.swift"; sourceTree = "<group>"; };
+		59EC9E352B384F518FAD4D57 /* CipherState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CipherState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,9 @@
 			isa = PBXGroup;
 			children = (
 				404ED44C29D45A01002426E7 /* NoizeLib.h */,
+				59EC9E352B384F518FAD4D57 /* CipherState.swift */,
+				59EC906ACB026BB25C6CB8EB /* Data+extension.swift */,
+				59EC926396C935A3B284E84C /* Data+hex.swift */,
 			);
 			path = NoizeLib;
 			sourceTree = "<group>";
@@ -191,6 +200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59EC90691E7E643E9A922D69 /* CipherState.swift in Sources */,
+				59EC99AD717BE81F9761FBE8 /* Data+extension.swift in Sources */,
+				59EC920619150822923721A9 /* Data+hex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +366,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.vidua.NoizeLib;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = auto;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -391,7 +403,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.vidua.NoizeLib;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = auto;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -414,8 +426,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.vidua.NoizeLibTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -434,8 +446,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.vidua.NoizeLibTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

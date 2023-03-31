@@ -18,14 +18,13 @@ protocol CipherState {
 
     // If k is non-empty returns DECRYPT(k, n++, ad, ciphertext). Otherwise returns ciphertext. If an authentication failure occurs in DECRYPT() then n is not incremented and an error is signaled to the caller.
     func decryptWithAd(authenticationData: Data, ciphertext: Data) throws -> Data
-
 }
 
 class CipherStateImpl: CipherState {
 
     var k: Data?
     var nonce: UInt
-    required init(k: Data?, nonce: UInt = 0) {
+    required init(k: Data?, nonce: UInt = 1) {
         self.k = k
         self.nonce = nonce
     }
@@ -38,16 +37,30 @@ class CipherStateImpl: CipherState {
         self.nonce = nonce
     }
 
+    private func convertNonceToChaChaNonce() throws -> ChaChaPoly.Nonce {
+        var nonceTemp = Data()
+        nonceTemp.append(Data(repeating: 0, count: 4))
+        nonceTemp.append(Data.fromInt(integer: nonce))
+        return try ChaChaPoly.Nonce(data: nonceTemp)
+    }
+
+    private func incrementNonce() throws {
+        nonce = nonce + 1
+        if nonce >= UInt64.max {
+            throw Errors.nonceOverflow
+        }
+    }
+    
     func encryptWithAd(authenticationData: Data, plaintext: Data) throws -> Data {
         if let encryptionKey = k {
             let key = SymmetricKey(data: encryptionKey)
 
-            // increment nonce
-            nonce = nonce + 1
-            let chachanonce = try ChaChaPoly.Nonce(data: Data.fromInt(integer: nonce))
+            let chachaNonce = try convertNonceToChaChaNonce()
+            let result = try ChaChaPoly.seal(plaintext, using: key , nonce: chachaNonce, authenticating: authenticationData)
 
-            let result = try ChaChaPoly.seal(plaintext, using: key , nonce: chachanonce, authenticating: authenticationData)
-            return result.ciphertext
+            try incrementNonce()
+
+            return result.combined
         } else {
             return plaintext
         }
@@ -57,11 +70,14 @@ class CipherStateImpl: CipherState {
         if let encryptionKey = k {
             let key = SymmetricKey(data: encryptionKey)
 
-            let chachaNonce = try ChaChaPoly.Nonce(data: Data.fromInt(integer: nonce))
+            let chachaNonce = try convertNonceToChaChaNonce()
+            let sealedBox = try ChaChaPoly.SealedBox(combined: ciphertext)
 
-            let sealedBox = try ChaChaPoly.SealedBox(nonce: chachaNonce, ciphertext: ciphertext, tag: <#T##T##T#>)
             let result = try ChaChaPoly.open(sealedBox, using: key, authenticating: authenticationData)
-            nonce = nonce + 1
+
+            // increment nonce
+            try incrementNonce()
+
             return result
         } else {
             return ciphertext
@@ -70,7 +86,7 @@ class CipherStateImpl: CipherState {
 }
 
 enum Errors: Error {
-    case noKey
+    case nonceOverflow
 }
 
 
