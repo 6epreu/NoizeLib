@@ -24,7 +24,7 @@ class CipherStateImpl: CipherState {
 
     var k: Data?
     var nonce: UInt
-    required init(k: Data?, nonce: UInt = 1) {
+    required init(k: Data?, nonce: UInt = 0) {
         self.k = k
         self.nonce = nonce
     }
