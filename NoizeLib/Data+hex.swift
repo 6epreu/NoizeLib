@@ -59,5 +59,11 @@ public extension Data {
             self.resetBytes(in: 0...count-1)
         }
     }
+
+    mutating func xor(key: Data) {
+        for i in 0..<self.count {
+            self[i] ^= key[i % key.count]
+        }
+    }
 }
 

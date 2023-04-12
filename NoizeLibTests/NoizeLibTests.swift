@@ -5,6 +5,7 @@
 //  Created by Sergey Brazhnik on 29.03.2023.
 //
 
+import CryptoKit
 import Foundation
 import XCTest
 @testable import NoizeLib
@@ -29,14 +30,36 @@ class NoizeLibTests: XCTestCase {
         do {
             let encripted = try cipher.encryptWithAd(authenticationData: ad, plaintext: plainText.data(using: .utf8)!)
             print("encripted =\(encripted)")
+
+            // to make test pass
+            cipher.setNonce(nonce: cipher.nonce-1)
             let decripted = try cipher.decryptWithAd(authenticationData: ad, ciphertext: encripted)
             print("decrypted =\(decripted)")
 
             let resStr = String(bytes: decripted, encoding: .utf8)
             print("decrypted str =\(resStr)")
+            assert(true)
         } catch  {
+            assertionFailure()
             print("Error =\(error)")
         }
+    }
+
+    func testPattern() throws {
+        let pattern = Pattern.Noise_XN_25519_ChaChaPoly_SHA256
+        let hashFuncString = "\(type(of: pattern.hashAlg))"
+        XCTAssertEqual(hashFuncString, "SHA256")
+
+        XCTAssertEqual(pattern.HASHLEN, 32)
+
+        XCTAssertEqual(pattern.BLOCKLEN, 64)
+
+        let hashRes = pattern.hash(data: "hello".data(using: .utf8)!)
+        XCTAssertEqual(hashRes, Data(hex: "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"))
+    }
+
+    func testSymmetry() throws {
+        let symmetry = SymmetricStateImpl(pattern: Pattern.Noise_XN_25519_ChaChaPoly_SHA256)
     }
 
 }

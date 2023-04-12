@@ -50,7 +50,15 @@ class CipherStateImpl: CipherState {
             throw Errors.nonceOverflow
         }
     }
-    
+
+
+    /*
+        Encryption of chacha
+     - Parameters:
+       - authenticationData:
+       - plaintext:
+     - Returns: cipherText || tag
+     - Throws:*/
     func encryptWithAd(authenticationData: Data, plaintext: Data) throws -> Data {
         if let encryptionKey = k {
             let key = SymmetricKey(data: encryptionKey)
@@ -60,18 +68,30 @@ class CipherStateImpl: CipherState {
 
             try incrementNonce()
 
-            return result.combined
+            var cipherText = Data()
+            cipherText.append(result.ciphertext) // variant length
+            cipherText.append(result.tag)   // 16 bytes
+            return cipherText
         } else {
             return plaintext
         }
     }
 
+    /*
+        Decrypt
+     - Parameters:
+       - authenticationData:
+       - ciphertext: cipherText || tag
+     - Returns:
+     - Throws:*/
     func decryptWithAd(authenticationData: Data, ciphertext: Data) throws -> Data {
         if let encryptionKey = k {
             let key = SymmetricKey(data: encryptionKey)
 
             let chachaNonce = try convertNonceToChaChaNonce()
-            let sealedBox = try ChaChaPoly.SealedBox(combined: ciphertext)
+            let encryptedText = ciphertext.subdata(in: 0..<ciphertext.count-16)
+            let tag = ciphertext.subdata(in: ciphertext.count-16..<ciphertext.count)
+            let sealedBox = try ChaChaPoly.SealedBox(nonce: chachaNonce, ciphertext: encryptedText, tag: tag)
 
             let result = try ChaChaPoly.open(sealedBox, using: key, authenticating: authenticationData)
 
