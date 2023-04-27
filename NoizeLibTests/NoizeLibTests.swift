@@ -58,8 +58,5 @@ class NoizeLibTests: XCTestCase {
         XCTAssertEqual(hashRes, Data(hex: "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"))
     }
 
-    func testSymmetry() throws {
-        let symmetry = SymmetricStateImpl(pattern: Pattern.Noise_XN_25519_ChaChaPoly_SHA256)
-    }
 
 }
