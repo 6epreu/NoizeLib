@@ -12,7 +12,7 @@
 		<key>NoizeLibTests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>6</integer>
 			<key>isShown</key>
 			<false />
 		</dict>
@@ -21,26 +21,33 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>NoizeLibTests.testEncryptDecrypt.xcscheme</key>
+		<key>SymmetryTest.testEncryptDecrypt.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>NoizeLibTests.testSymmetricInit.xcscheme</key>
+		<key>SymmetryTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>NoizeLibTests.testPattern.xcscheme</key>
+		<key>HandshakeTests.testhandShakeXN.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>3</integer>
+		</dict>
+		<key>HandshakeTests.testhandShakeNK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 </dict>

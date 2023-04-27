@@ -100,6 +100,12 @@ struct Pattern {
                     preSharedMessagePatternsResponder: [],
                     messagePatterns: [[.E], [.E, .EE], [.S, .SE]])
 
+    static let Noise_NK_25519_ChaChaPoly_SHA256 =
+            Pattern(name: "Noise_NK_25519_ChaChaPoly_SHA256",
+                    preSharedMessagePatternsInitiator: [],
+                    preSharedMessagePatternsResponder: [.S],
+                    messagePatterns: [ [.E, .ES], [.E, .EE]])
+
 }
 
 enum Token {
