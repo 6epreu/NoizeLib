@@ -3,13 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4036799529F13D7F00A18B8C /* AWSCloudWatch in Frameworks */ = {isa = PBXBuildFile; productRef = 4036799429F13D7F00A18B8C /* AWSCloudWatch */; };
-		4036799729F13D7F00A18B8C /* AWSCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4036799629F13D7F00A18B8C /* AWSCore */; };
-		4036799929F13D7F00A18B8C /* AWSLogs in Frameworks */ = {isa = PBXBuildFile; productRef = 4036799829F13D7F00A18B8C /* AWSLogs */; };
 		404ED45229D45A01002426E7 /* NoizeLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404ED44929D45A01002426E7 /* NoizeLib.framework */; };
 		404ED45729D45A01002426E7 /* NoizeLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404ED45629D45A01002426E7 /* NoizeLibTests.swift */; };
 		404ED45829D45A01002426E7 /* NoizeLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 404ED44C29D45A01002426E7 /* NoizeLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,7 +32,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4036796E29F08A4600A18B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		404ED44929D45A01002426E7 /* NoizeLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NoizeLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		404ED44C29D45A01002426E7 /* NoizeLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoizeLib.h; sourceTree = "<group>"; };
 		404ED45129D45A01002426E7 /* NoizeLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoizeLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,9 +52,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4036799929F13D7F00A18B8C /* AWSLogs in Frameworks */,
-				4036799529F13D7F00A18B8C /* AWSCloudWatch in Frameworks */,
-				4036799729F13D7F00A18B8C /* AWSCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +87,6 @@
 		404ED44B29D45A01002426E7 /* NoizeLib */ = {
 			isa = PBXGroup;
 			children = (
-				4036796E29F08A4600A18B8C /* Info.plist */,
 				404ED44C29D45A01002426E7 /* NoizeLib.h */,
 				59EC9E352B384F518FAD4D57 /* CipherState.swift */,
 				59EC906ACB026BB25C6CB8EB /* Data+extension.swift */,
@@ -146,9 +138,6 @@
 			);
 			name = NoizeLib;
 			packageProductDependencies = (
-				4036799429F13D7F00A18B8C /* AWSCloudWatch */,
-				4036799629F13D7F00A18B8C /* AWSCore */,
-				4036799829F13D7F00A18B8C /* AWSLogs */,
 			);
 			productName = NoizeLib;
 			productReference = 404ED44929D45A01002426E7 /* NoizeLib.framework */;
@@ -191,7 +180,7 @@
 				};
 			};
 			buildConfigurationList = 404ED44329D45A01002426E7 /* Build configuration list for PBXProject "NoizeLib" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,7 +189,6 @@
 			);
 			mainGroup = 404ED43F29D45A01002426E7;
 			packageReferences = (
-				4036799329F13D7F00A18B8C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */,
 			);
 			productRefGroup = 404ED44A29D45A01002426E7 /* Products */;
 			projectDirPath = "";
@@ -537,35 +525,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4036799329F13D7F00A18B8C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aws-amplify/aws-sdk-ios-spm";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4036799429F13D7F00A18B8C /* AWSCloudWatch */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4036799329F13D7F00A18B8C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
-			productName = AWSCloudWatch;
-		};
-		4036799629F13D7F00A18B8C /* AWSCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4036799329F13D7F00A18B8C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
-			productName = AWSCore;
-		};
-		4036799829F13D7F00A18B8C /* AWSLogs */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4036799329F13D7F00A18B8C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
-			productName = AWSLogs;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 404ED44029D45A01002426E7 /* Project object */;
 }

@@ -74,7 +74,7 @@ class SymmetricStateImpl : SymmetricState {
         let result = try! hkdf(chainingKey: ck, inputKeyMaterial: inputKeyMaterial, numOutputs: 3)
         ck = result.0
 
-        var tempH = result.1
+        let tempH = result.1
         mixHash(data: tempH)
 
         var tempKey = result.2
