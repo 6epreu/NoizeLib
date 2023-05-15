@@ -109,13 +109,7 @@ class SymmetricStateImpl : SymmetricState {
      */
     func decryptAndHash(cipherText: Data) -> Data {
         // todo for now counting no errors here. Future -> remove try!
-        let plainText: Data!
-        do {
-            plainText = try cipher.decryptWithAd(authenticationData: h, ciphertext: cipherText)
-        } catch {
-            print("Error = \(error)")
-            plainText = Data()
-        }
+        let plainText = try! cipher.decryptWithAd(authenticationData: h, ciphertext: cipherText)
         mixHash(data: cipherText)
         return plainText
     }

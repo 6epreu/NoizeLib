@@ -40,7 +40,7 @@ class CipherStateImpl: CipherState {
     private func convertNonceToChaChaNonce() throws -> ChaChaPoly.Nonce {
         var nonceTemp = Data()
         nonceTemp.append(Data(repeating: 0, count: 4))
-        nonceTemp.append(Data.fromInt(integer: nonce))
+        nonceTemp.append(Data.fromUInt64(integer: nonce.littleEndian))
         return try ChaChaPoly.Nonce(data: nonceTemp)
     }
 

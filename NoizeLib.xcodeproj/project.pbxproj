@@ -11,7 +11,6 @@
 		404ED45729D45A01002426E7 /* NoizeLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404ED45629D45A01002426E7 /* NoizeLibTests.swift */; };
 		404ED45829D45A01002426E7 /* NoizeLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 404ED44C29D45A01002426E7 /* NoizeLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59EC90691E7E643E9A922D69 /* CipherState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC9E352B384F518FAD4D57 /* CipherState.swift */; };
-		59EC920619150822923721A9 /* Data+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC926396C935A3B284E84C /* Data+hex.swift */; };
 		59EC9291BF0A19A4DF5A0ACD /* SymmetryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC986DC18B9C295F68E69A /* SymmetryTests.swift */; };
 		59EC94DF3D9BD81A4C6B711E /* SymmetricState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC9849666B512743B36469 /* SymmetricState.swift */; };
 		59EC964E0B8A95F063920970 /* HandShakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EC9912240A33E0041EC5BE /* HandShakeTests.swift */; };
@@ -39,7 +38,6 @@
 		59EC906ACB026BB25C6CB8EB /* Data+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+extension.swift"; sourceTree = "<group>"; };
 		59EC91782422D58366436CCD /* HandshakeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandshakeState.swift; sourceTree = "<group>"; };
 		59EC923587272C003739D870 /* Pattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
-		59EC926396C935A3B284E84C /* Data+hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+hex.swift"; sourceTree = "<group>"; };
 		59EC9282E4F376699274ED5E /* Transport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
 		59EC9849666B512743B36469 /* SymmetricState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymmetricState.swift; sourceTree = "<group>"; };
 		59EC986DC18B9C295F68E69A /* SymmetryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymmetryTests.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 				404ED44C29D45A01002426E7 /* NoizeLib.h */,
 				59EC9E352B384F518FAD4D57 /* CipherState.swift */,
 				59EC906ACB026BB25C6CB8EB /* Data+extension.swift */,
-				59EC926396C935A3B284E84C /* Data+hex.swift */,
 				59EC9849666B512743B36469 /* SymmetricState.swift */,
 				59EC923587272C003739D870 /* Pattern.swift */,
 				59EC91782422D58366436CCD /* HandshakeState.swift */,
@@ -224,7 +221,6 @@
 			files = (
 				59EC90691E7E643E9A922D69 /* CipherState.swift in Sources */,
 				59EC99AD717BE81F9761FBE8 /* Data+extension.swift in Sources */,
-				59EC920619150822923721A9 /* Data+hex.swift in Sources */,
 				59EC94DF3D9BD81A4C6B711E /* SymmetricState.swift in Sources */,
 				59EC987998233AD9B5C93D40 /* Pattern.swift in Sources */,
 				59EC9C070CC8CCCFBA283C98 /* HandshakeState.swift in Sources */,
