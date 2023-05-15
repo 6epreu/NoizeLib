@@ -5,7 +5,7 @@
 import Foundation
 
 extension Data {
-    static func fromInt(integer: UInt) -> Data {
+    static func fromInt(integer: UInt64) -> Data {
         var temp = integer
         return Data(bytes: &temp, count: MemoryLayout.size(ofValue: integer))
     }

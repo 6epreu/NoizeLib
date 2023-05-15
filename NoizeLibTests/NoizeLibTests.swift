@@ -21,20 +21,24 @@ class NoizeLibTests: XCTestCase {
     }
 
     func testEncryptDecrypt() throws {
-        var key = [UInt8](repeating: 0, count: 32)
-        let _ = SecRandomCopyBytes(kSecRandomDefault, key.count, &key)
+        var key = [UInt8](repeating: 18, count: 32)
+        //let _ = SecRandomCopyBytes(kSecRandomDefault, key.count, &key)
 
-        let plainText = "Hello World!"
-        let ad = Data(repeating: 0, count: 32)
-        let cipher = CipherStateImpl(k: Data(bytes: key))
+        let plainText = "hello"
+        //let ad = Data(repeating: 0, count: 32)
+        let ad = "world".data(using: .utf8)!
+        //let nonce = [UInt8](repeating: 52, count: 8)
+
+        let nonce = UInt64(3761688987579986996)
+        let cipher = CipherStateImpl(k: Data(bytes: key), nonce: 1456)
         do {
             let encripted = try cipher.encryptWithAd(authenticationData: ad, plaintext: plainText.data(using: .utf8)!)
-            print("encripted =\(encripted)")
+            print("encripted =\(encripted.hex)")
 
             // to make test pass
             cipher.setNonce(nonce: cipher.nonce-1)
             let decripted = try cipher.decryptWithAd(authenticationData: ad, ciphertext: encripted)
-            print("decrypted =\(decripted)")
+            print("decrypted =\(decripted.hex)")
 
             let resStr = String(bytes: decripted, encoding: .utf8)
             print("decrypted str =\(resStr)")

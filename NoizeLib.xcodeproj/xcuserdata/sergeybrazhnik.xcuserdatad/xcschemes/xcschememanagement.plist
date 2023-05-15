@@ -21,28 +21,28 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>SymmetryTest.testEncryptDecrypt.xcscheme</key>
+		<key>SymmetryTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>SymmetryTest.xcscheme</key>
+		<key>HandshakeTests.testhandShakeXN.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>HandshakeTests.testhandShakeXN.xcscheme</key>
+		<key>HandshakeTests.testhandShakeNK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>HandshakeTests.testhandShakeNK.xcscheme</key>
+		<key>NoizeLibTests.testEncryptDecrypt.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />

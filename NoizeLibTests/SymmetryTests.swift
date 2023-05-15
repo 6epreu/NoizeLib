@@ -103,11 +103,13 @@ class SymmetryTest: XCTestCase {
 
     func testEncryptDecrypt() {
         let symmetry1 = SymmetricStateImpl(pattern: Pattern.Noise_XN_25519_ChaChaPoly_SHA256)
-        let plainText = "Hello worlds".data(using: .utf8)!
+        let plainText = "Hello".data(using: .utf8)!
         let cipherText = symmetry1.encryptAndHash(plainText: plainText)
+        print("cipherText = \(cipherText)")
 
         let symmetry2 = SymmetricStateImpl(pattern: Pattern.Noise_XN_25519_ChaChaPoly_SHA256)
         let decryptedText = symmetry2.decryptAndHash(cipherText: cipherText)
+        print("decryptedText = \(decryptedText)")
 
         XCTAssertEqual(plainText, decryptedText)
     }

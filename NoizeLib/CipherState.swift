@@ -5,13 +5,13 @@ import CryptoKit
 import Foundation
 
 protocol CipherState {
-    init(k: Data?, nonce: UInt)
+    init(k: Data?, nonce: UInt64)
 
     // Returns true if k is non-empty, false otherwise.
     func hasKey() -> Bool
 
     // Sets n = nonce. This function is used for handling out-of-order transport messages, as described in Section 11.4.
-    func setNonce(nonce: UInt)
+    func setNonce(nonce: UInt64)
 
     // If k is non-empty returns ENCRYPT(k, n++, ad, plaintext). Otherwise returns plaintext.
     func encryptWithAd(authenticationData: Data, plaintext: Data) throws -> Data
@@ -23,8 +23,8 @@ protocol CipherState {
 class CipherStateImpl: CipherState {
 
     var k: Data?
-    var nonce: UInt
-    required init(k: Data?, nonce: UInt = 0) {
+    var nonce: UInt64
+    required init(k: Data?, nonce: UInt64 = 0) {
         self.k = k
         self.nonce = nonce
     }
@@ -33,7 +33,7 @@ class CipherStateImpl: CipherState {
         k != nil
     }
 
-    func setNonce(nonce: UInt) {
+    func setNonce(nonce: UInt64) {
         self.nonce = nonce
     }
 
